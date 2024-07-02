@@ -1,0 +1,70 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# from box86
+build/
+build*/
+.vscode
+.cache
+.gdb_history
+src/git_head.h
+backup/
+
+# LLVMprivateGenerator
+/LLVMprivateGenerator/*
+!/LLVMprivateGenerator/Makefile
+!/LLVMprivateGenerator/main.cpp
+!/LLVMprivateGenerator/registered_structs.cpp
+
+# macOS
+.DS_Store
