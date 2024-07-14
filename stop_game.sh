@@ -9,6 +9,16 @@ verbose_print() {
     fi
 }
 
+
+# Check if there are any other Bluetooth devices connected
+connected_devices=$(bluetoothctl devices Connected | wc -l)
+
+if [ "$connected_devices" -gt 0 ]; then
+    # There are still Bluetooth devices connected, prevent stopping of game 
+    echo "There are still Bluetooth devices connected, ignoring trigger to stop_game.sh."
+    exit 1 
+fi
+
 # Function to stop a process by name
 stop_process() {
     local process_name=$1

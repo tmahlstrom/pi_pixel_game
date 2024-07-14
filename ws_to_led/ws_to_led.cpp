@@ -114,7 +114,7 @@ void displayInitialContent(Canvas *canvas, const char* bdf_font_file) {
         return;
     }
 
-    canvas->Fill(2, 2, 2);
+    canvas->Fill(1, 1, 1);
 
     Color font_color(255, 255, 255);
     Color bg_color(0, 0, 0);
@@ -175,25 +175,6 @@ void displayInitialContent(Canvas *canvas, const char* bdf_font_file) {
         color_index++;
         current_color = colors[color_index % colors.size()];
         y_mod ++;
-        // Update canvas display (if needed, but you mentioned not needing this)
-        // canvas->UpdateScreen();
-
-        // Pause to slow down animation
-        
-
-        // // Move the row back and forth
-        // center_x += direction;
-
-        // // Reverse direction when hitting boundaries
-        // if (center_x <= canvas->width() / 2 - row_half_width) {
-        //     center_x = canvas->width() / 2 - row_half_width + 1;
-        //     direction = -direction;
-        //     color_index++;  // Change color after reversing direction
-        // } else if (center_x >= canvas->width() / 2 + row_half_width) {
-        //     center_x = canvas->width() / 2 + row_half_width - 1;
-        //     direction = -direction;
-        //     color_index++;  // Change color after reversing direction
-        // }
     }
 
 
@@ -272,3 +253,5 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+//g++ -std=c++11 -I/home/tylerahlstrom/websocketpp -I/home/tylerahlstrom/rpi-rgb-led-matrix/include -L/home/tylerahlstrom/rpi-rgb-led-matrix/lib -o ws_to_led ws_to_led.cpp -lboost_system -lboost_filesystem -lpthread -lrgbmatrix

@@ -5,6 +5,14 @@ exec > >(tee -a $LOG_FILE) 2>&1
 
 echo "Script started at $(date)"
 
+UPTIME=$(awk '{print int($1)}' /proc/uptime)
+THRESHOLD=15 # 15 seconds 
+
+if [ "$UPTIME" -lt "$THRESHOLD" ]; then
+    echo "Not allowing start game prior to set delay."
+    exit 1 
+fi
+
 # Check if the LED control program is running
 if pgrep -f "ws_to_led --led-rows=64 --led-cols=256 --led-slowdown-gpio=4 -f 5x7.bdf" > /dev/null; then
     echo "LED control program is already running."
@@ -37,7 +45,7 @@ LED_PID=$!
 echo "LED control program started with PID $LED_PID"
 cd /home/tylerahlstrom
 
-sleep 5  # Adjust the sleep duration as needed
+sleep 1  # Adjust the sleep duration as needed
 
 # Start Xvfb on display :99
 echo "Starting Xvfb..."
@@ -45,13 +53,13 @@ Xvfb :99 -screen 0 320x240x16 >> $LOG_FILE 2>&1 &
 XVFB_PID=$!
 echo "Xvfb started with PID $XVFB_PID"
 
-sleep 5  # Adjust the sleep duration as needed
+sleep 1  # Adjust the sleep duration as needed
 
 # Set the DISPLAY environment variable
 export DISPLAY=:99
 echo "DISPLAY set to $DISPLAY"
 
-sleep 5  # Adjust the sleep duration as needed
+sleep 1  # Adjust the sleep duration as needed
 
 # Start the game
 echo "Starting the game..."
@@ -59,6 +67,6 @@ echo "Starting the game..."
 GAME_PID=$!
 echo "Game started with PID $GAME_PID"
 
-sleep 30
+
 echo "Script completed at $(date)"
 
