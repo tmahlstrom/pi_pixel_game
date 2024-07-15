@@ -69,5 +69,8 @@ stop_process "Xvfb :99"
 # Stop the game
 stop_process "lt3.x86_64"
 
+# Stop wayfire
+stop_process "wayfire"
+
 echo "All processes stopped"
 
