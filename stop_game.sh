@@ -72,5 +72,8 @@ stop_process "lt3.x86_64"
 # Stop wayfire
 stop_process "wayfire"
 
+# Stop unity exit monitor
+stop_process "unity_trigger_stop_game"
+
 echo "All processes stopped"
 

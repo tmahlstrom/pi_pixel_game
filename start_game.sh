@@ -67,6 +67,11 @@ echo "Starting the game..."
 GAME_PID=$!
 echo "Game started with PID $GAME_PID"
 
+# Start monitoring unity exit
+#echo "Starting unity exit monitor..."
+#./unity_trigger_stop_game.sh >> $LOG_FILE 2>&1 &
+#MONITOR_PID=$!
+#echo "Monitor started with PID $MONITOR_PID"
 
 echo "Script completed at $(date)"
 
