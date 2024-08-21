@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from samplebase import SampleBase
+from rpi-rgb-led-matrix/bindings/python/samples/samplebase import SampleBase
 from rgbmatrix import graphics
 import time
 
@@ -11,7 +11,7 @@ class GraphicsTest(SampleBase):
     def run(self):
         canvas = self.matrix
         font = graphics.Font()
-        font.LoadFont("../../../fonts/7x13.bdf")
+        font.LoadFont("../../../fonts/5x8.bdf")
 
         red = graphics.Color(255, 0, 0)
         graphics.DrawLine(canvas, 5, 5, 22, 13, red)
@@ -19,10 +19,10 @@ class GraphicsTest(SampleBase):
         green = graphics.Color(0, 255, 0)
         graphics.DrawCircle(canvas, 15, 15, 10, green)
 
-        blue = graphics.Color(0, 0, 255)
-        graphics.DrawText(canvas, font, 2, 10, blue, "Text")
+        white = graphics.Color(255, 255, 255)
+        graphics.DrawText(canvas, font, 111, 35, white, "Loading")
 
-        time.sleep(10)   # show display for 10 seconds before exit
+        time.sleep(100)   # show display for 10 seconds before exit
 
 
 # Main function
